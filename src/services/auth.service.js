@@ -83,7 +83,6 @@ export const refreshSession = async (oldToken) => {
   };
 };
 
-// LOGOUT (đã sửa)
 export const logout = async (userId) => {
   const user = await User.findById(userId);
   if (user) {

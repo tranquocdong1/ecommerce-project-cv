@@ -1,5 +1,6 @@
 import express from "express";
 const router = express.Router();
+import authRoutes from "./auth.routes.js";
 
 router.get("/health", (req, res) => {
     res.json({
@@ -7,5 +8,7 @@ router.get("/health", (req, res) => {
         message: "API is running"
     })
 });
+
+router.use("/auth", authRoutes);
 
 export default router;

@@ -4,10 +4,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 
-import routes from "../routes/index.js";
-import notFound from "../middlewares/notFound.js";
-import errorHandler from "../middlewares/errorHandler.js";
-import { apiLimiter } from "../middlewares/rateLimit.js";
+import routes from "../src/routes/index.js";
+import notFound from "../src/middlewares/notFound.js";
+import errorHandler from "../src/middlewares/errorHandler.js";
+import { apiLimiter } from "../src/middlewares/rateLimit.js";
 
 const app = express();
 
