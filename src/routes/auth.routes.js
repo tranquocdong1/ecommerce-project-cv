@@ -8,7 +8,7 @@ import {
 } from "../controllers/auth.controller.js";
 
 import { loginLimiter } from "../middlewares/rateLimit.js";
-import auth from "../middlewares/auth.js";  // sẽ tạo ở phần 2.5
+import auth from "../middlewares/auth.js";
 
 const router = express.Router();
 

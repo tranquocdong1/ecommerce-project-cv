@@ -8,7 +8,6 @@ import {
 import { success } from "../utils/response.js";
 import User from "../models/User.js";
 
-// Sanitize user output
 const sanitizeUser = (user) => {
   if (!user) return null;
   const obj = user.toObject ? user.toObject() : { ...user };
@@ -17,7 +16,6 @@ const sanitizeUser = (user) => {
   return obj;
 };
 
-// REGISTER
 export const register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -30,7 +28,6 @@ export const register = asyncHandler(async (req, res) => {
   success(res, { user: sanitizeUser(user) }, 201);
 });
 
-// LOGIN
 export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -50,7 +47,6 @@ export const login = asyncHandler(async (req, res) => {
   });
 });
 
-// REFRESH TOKEN
 export const refreshToken = asyncHandler(async (req, res) => {
   const { refreshToken: oldToken } = req.body;
 
@@ -63,7 +59,6 @@ export const refreshToken = asyncHandler(async (req, res) => {
   success(res, tokens);
 });
 
-// LOGOUT
 export const logout = asyncHandler(async (req, res) => {
   const userId = req.user?.userId;
 
@@ -76,7 +71,6 @@ export const logout = asyncHandler(async (req, res) => {
   success(res, { message: "Logged out successfully" });
 });
 
-// GET CURRENT USER
 export const getMe = asyncHandler(async (req, res) => {
   const userId = req.user?.userId;
 

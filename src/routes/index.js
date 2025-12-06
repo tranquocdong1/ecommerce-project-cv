@@ -3,6 +3,7 @@ const router = express.Router();
 import authRoutes from "./auth.routes.js";
 import categoryRoutes from './category.routes.js';
 import productRoutes from './product.routes.js';
+import cartRoutes from './cart.routes.js';
 
 router.get("/health", (req, res) => {
     res.json({
@@ -14,5 +15,6 @@ router.get("/health", (req, res) => {
 router.use("/auth", authRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/products', productRoutes);
+router.use('/cart', cartRoutes);
 
 export default router;
