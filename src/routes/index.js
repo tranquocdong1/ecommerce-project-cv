@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router();
 import authRoutes from "./auth.routes.js";
 import categoryRoutes from './category.routes.js';
+import productRoutes from './product.routes.js';
 
 router.get("/health", (req, res) => {
     res.json({
@@ -11,6 +12,7 @@ router.get("/health", (req, res) => {
 });
 
 router.use("/auth", authRoutes);
-router.use('/category', categoryRoutes);
+router.use('/categories', categoryRoutes);
+router.use('/products', productRoutes);
 
 export default router;
