@@ -35,7 +35,7 @@ export const adminGetOrderDetail = asyncHandler(async (req, res) => {
 });
 
 export const adminUpdateOrderStatus = asyncHandler(async (req, res) => {
-  const { status, paymentStatus } = req.body;
-  const order = await updateOrderStatus(req.params.id, status, paymentStatus);
+  const { status, paymentStatus, deliveryStatus } = req.body;
+  const order = await updateOrderStatus(req.params.id, status, paymentStatus, deliveryStatus);
   success(res, { order });
 });

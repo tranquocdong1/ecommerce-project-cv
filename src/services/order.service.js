@@ -50,13 +50,33 @@ export const getOrderById = async (orderId, userId, isAdmin = false) => {
   return order;
 };
 
-export const updateOrderStatus = async (orderId, status, paymentStatus) => {
+export const updateOrderStatus = async (orderId, status, paymentStatus, deliveryStatus) => {
   const order = await Order.findById(orderId);
   if (!order) throw new Error("Order not found");
 
-  if (status) order.status = status;
-  if (paymentStatus) order.paymentStatus = paymentStatus;
+  if (status) {
+    order.status = status;
+
+    if (!deliveryStatus) {
+      if (status === "shipped") {
+        order.deliveryStatus = "shipping";
+      } else if (status === "completed") {
+        order.deliveryStatus = "delivered";
+      } else if (status === "pending") {
+        order.deliveryStatus = "pending";
+      }
+    }
+  }
+
+  if (paymentStatus) {
+    order.paymentStatus = paymentStatus;
+  }
+
+  if (deliveryStatus) {
+    order.deliveryStatus = deliveryStatus;
+  }
 
   await order.save();
   return order;
 };
+
