@@ -7,6 +7,7 @@ import cartRoutes from './cart.routes.js';
 import orderRoutes from "./order.routes.js";
 import paymentRoutes from "./payment.routes.js";
 import shippingRoutes from "./shipping.routes.js";
+import adminStatsRoutes from "./adminStats.routes.js";
 
 router.get("/health", (req, res) => {
     res.json({
@@ -22,5 +23,6 @@ router.use('/cart', cartRoutes);
 router.use("/orders", orderRoutes);
 router.use("/payments", paymentRoutes);
 router.use("/shipping", shippingRoutes);
+router.use("/admin/stats", adminStatsRoutes);
 
 export default router;
