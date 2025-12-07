@@ -1,3 +1,4 @@
+import { response } from "express";
 import mongoose from "mongoose";
 
 const OrderItemSchema = new mongoose.Schema(
@@ -57,6 +58,14 @@ const OrderSchema = new mongoose.Schema(
       fullName: String,
       phone: String,
       address: String
+    },
+
+    paymentInfo: {
+      provider: String,
+      transactionNo: String,
+      bankCode: String,
+      responseCode: String,
+      rawData: Object
     }
   },
   { timestamps: true }
